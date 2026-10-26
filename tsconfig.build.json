@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    // Production bundle must not depend on test globals.
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts"]
+}

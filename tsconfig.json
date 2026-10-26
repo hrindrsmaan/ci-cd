@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "lib": ["ES2022"],
+    "rootDir": ".",
+    "outDir": "dist",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    // Pin ambient globals. Without this, TS auto-loads EVERY package in
+    // node_modules/@types — @types/mocha is hoisted here transitively and
+    // collides with @types/jest over describe/it/beforeEach.
+    // Explicit imports (e.g. supertest) still resolve normally; this only
+    // restricts global auto-inclusion.
+    "types": ["node", "jest"]
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts"]
+}
